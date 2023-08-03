@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DG Movies</title>
+    <link
+      rel="shortcut icon"
+      href="./img/logo_transparentDarker.png"
+      type="image/x-icon"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: "Raleway";
+        font-weight: 600;
+      }
+      .fail {
+        border: 2px solid crimson;
+      }
+      .loginWrapper {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(
+            to right,
+            rgba(8, 174, 234, 0.85) 0%,
+            rgba(42, 245, 152, 0.59) 100%
+          ),
+          url("https://images.alphacoders.com/107/1072652.jpg") no-repeat center
+            center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        position: relative;
+      }
+      .login {
+        width: 500px;
+        height: 250px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+      }
+
+      button {
+        padding: 10px 40px;
+        margin: 15px;
+        cursor: pointer;
+        border-radius: 6px;
+        outline: none;
+        border: none;
+        background-color: white;
+        color: black;
+        transition: 0.3s ease all;
+      }
+      button:active {
+        padding: 8px 32px;
+      }
+      input {
+        width: 80%;
+        padding: 10px;
+        margin: 8px;
+        outline: none;
+        transition: 0.4s ease all;
+      }
+      .forgotPass {
+        color: white;
+        text-decoration: none;
+        position: absolute;
+        bottom: 25px;
+        right: 25px;
+      }
+      .status {
+        position: absolute;
+        bottom: -27px;
+        font-size: 22px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="loginWrapper">
+      <div class="login">
+        <input
+          type="text"
+          name="username"
+          id="username"
+          placeholder="Username*"
+        />
+
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Password*"
+        />
+        <button>Log In</button>
+        <a href="#" class="forgotPass">Forgot Password</a>
+      </div>
+    </main>
+    <script>
+      const button = document.querySelector("button"),
+        username = document.querySelector("#username"),
+        password = document.querySelector("#password");
+      button.addEventListener("click", success);
+      function success() {
+        let data = {
+          usernames: ["Driton", "Diana", "Denis", "Admin"],
+          passwords: ["12345678", "87654321", "12341234", "admin"],
+        };
+
+        for (let i = 0; i < data.usernames.length; i++) {
+          if (
+            username.value == data.usernames[i] &&
+            password.value == data.passwords[i]
+          ) {
+            window.location.href = "./dg-movies.html";
+          } else {
+            username.classList.add("fail");
+            password.classList.add("fail");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>
